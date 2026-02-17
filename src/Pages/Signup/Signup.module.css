@@ -1,0 +1,35 @@
+.signup{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 20px;
+    max-width:95%;
+}
+
+input{
+    padding: 12px;
+    color: black;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+}
+
+button{
+    padding: 16px;
+    width:100%;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}

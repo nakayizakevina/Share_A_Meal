@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import styles from "./Signup.module.css";
+
+
 function Signup() {
   const {
     register,
@@ -49,13 +52,19 @@ function Signup() {
   }, [isSuccess, navigate]);
 
   return (
-    <div>
+    <div className={styles.signup}>
       <h2>Signup</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
-          placeholder="Name"
-          {...register("name", { required: "Name is required" })}
+          placeholder="First Name"
+          {...register("name", { required: " First Name is required" })}
+        />
+        {errors.name && <p>{errors.name.message}</p>}
+
+          <input
+          placeholder="Last Name"
+          {...register("name", { required: "Last Name is required" })}
         />
         {errors.name && <p>{errors.name.message}</p>}
 
@@ -67,7 +76,14 @@ function Signup() {
 
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Enter Password"
+          {...register("password", { required: "Password is required" })}
+        />
+        {errors.password && <p>{errors.password.message}</p>}
+
+        <input
+          type="password"
+          placeholder="Confirm Password"
           {...register("password", { required: "Password is required" })}
         />
         {errors.password && <p>{errors.password.message}</p>}

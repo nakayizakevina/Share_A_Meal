@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import styles from "./Login.module.css"
+
 function Login() {
   const {
     register,
@@ -45,10 +47,10 @@ function Login() {
   }, [token, navigate]);
 
   return (
-    <div>
+    <div className={styles.login}>
       <h2>Login</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form  className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           placeholder="Email"
           {...register("email", { required: "Email is required" })}
