@@ -1,35 +1,129 @@
-.signup{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.signup {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--White);
+  padding: 20px;
+}
+
+.signup h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.shade {
+  color: var(--Orange);
+}
+
+.form {
+  width: 100%;
+  max-width: 350px;
+  background: var(--White);
+  padding: 25px;
+  border: 3px solid var(--Orange);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid var(--Orange);
+  border-radius: 4px;
+  outline: none;
+}
+
+input::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+.passwordWrapper {
+  padding: 10px;
+  border: 1px solid var(--Orange);
+  border-radius: 4px;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.passwordWrapper:focus-within {
+  border: 2px solid var(--Orange);
+}
+
+.passwordWrapper input {
+  width: 100%;
+  border: none;
+  padding: 0;
+}
+
+.passwordWrapper input:focus-within {
+  border: none;
+}
+
+.options {
+  padding: 10px;
+  border: 1px solid var(--Orange);
+  border-radius: 4px;
+  outline: none;
+  background-color: transparent;
+}
+
+/* .form input:focus {
+  border: 2px solid var(--Orange);
+} */
+
+.form button {
+  background-color: var(--Orange);
+  color: var(--White);
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.form button:hover {
+  opacity: 0.9;
+}
+
+.form p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.termsWrapper {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.termsWrapper input {
+  margin-right: 8px;
+  accent-color: var(--Orange);
+  cursor: pointer;
+}
+
+.termsWrapper label {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .signup {
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    background-color: gray;
-}
+  }
 
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    padding: 20px;
-    max-width:95%;
-}
+  .form {
+    max-width: 400px;
+    padding: 35px;
+  }
 
-input{
-    padding: 12px;
-    color: black;
-    font-size: 16px;
-    border-radius: 6px;
-    border: none;
-}
-
-button{
-    padding: 16px;
-    width:100%;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
+  .signup h2 {
+    font-size: 24px;
+  }
 }

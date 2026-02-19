@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./Signup.module.css";
 
+import Openeye from "../../assets/Icons/eye-open.svg?react";
+import Closedeye from "../../assets/Icons/eye-closed.svg?react";
 
 function Signup() {
   const {
@@ -14,6 +16,12 @@ function Signup() {
   } = useForm();
   const [serverMessage, setServerMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const navigate = useNavigate();
 
@@ -53,51 +61,81 @@ function Signup() {
 
   return (
     <div className={styles.signup}>
-      <h2>Signup</h2>
-
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <h2>
+          Create your <span className={styles.shade}>account</span>
+        </h2>
         <input
-          placeholder="First Name"
-          {...register("name", { required: " First Name is required" })}
-        />
-        {errors.name && <p>{errors.name.message}</p>}
-
-          <input
-          placeholder="Last Name"
-          {...register("name", { required: "Last Name is required" })}
+          placeholder="Full Name"
+          {...register("name", { required: " Full Name is required" })}
         />
         {errors.name && <p>{errors.name.message}</p>}
 
         <input
-          placeholder="Email"
+          placeholder="Email Adress"
           {...register("email", { required: "Email is required" })}
         />
         {errors.email && <p>{errors.email.message}</p>}
 
-        <input
-          type="password"
-          placeholder="Enter Password"
-          {...register("password", { required: "Password is required" })}
-        />
-        {errors.password && <p>{errors.password.message}</p>}
+        <select
+          className={styles.options}
+          {...register("role", { required: "Role is required" })}
+        >
+          <option value="">Choose your role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+          <option value="vendor">Vendor</option>
+        </select>
 
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          {...register("password", { required: "Password is required" })}
-        />
+        <div className={styles.passwordWrapper}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter Password"
+            {...register("password", { required: "Password is required" })}
+          />
+          <span onClick={togglePassword}>
+            {showPassword ? <Openeye /> : <Closedeye />}
+          </span>
+        </div>
+        {errors.password && <p>{errors.password.message}</p>}
+        <div className={styles.passwordWrapper}>
+          <input
+            type={showConfirmPassword ? "text" : "password"}
+            placeholder="Confirm Password"
+            {...register("password", { required: "Password is required" })}
+          />
+          <span onClick={() => setShowConfirmPassword((prev) => !prev)}>
+            {showConfirmPassword ? <Openeye /> : <Closedeye />}
+          </span>
+        </div>
+
         {errors.password && <p>{errors.password.message}</p>}
 
         <button type="submit">Signup</button>
-        <p>
-          Already have an account?{" "}
-          <NavLink
-            to="/login"
-            className={({ isActive }) => (isActive ? "active-link" : "link")}
-          >
-            Login
-          </NavLink>
-        </p>
+        <div>
+          <div className={styles.termsWrapper}>
+            <label>
+              <input
+                type="checkbox"
+                {...register("terms", {
+                  required: "You must agree to the Terms and Services",
+                })}
+              />
+              I agree to the Terms and Services
+            </label>
+          </div>
+
+          {errors.terms && <p>{errors.terms.message}</p>}
+          <p>
+            Already have an account?{" "}
+            <NavLink
+              to="/login"
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+            >
+              <span className="login">Login</span>
+            </NavLink>
+          </p>
+        </div>
       </form>
 
       {serverMessage && <p>{serverMessage}</p>}
