@@ -5,6 +5,7 @@ import Navbar from "../../Components/Navbar/Navbar"
 import ProcuderCard from "../../Components/ProcuderCard/ProcuderCard"
 import ImpactCard from "../../Components/ImpactCard/ImpactCard"
 import Button from "../../Components/Button/Button"
+import Footer from "../../Components/Footer/Footer"
 
 import RestrauntIcon from "../../assets/Icons/restaurant.svg?react"
 import SponsorIcon from "../../assets/Icons/money-dollar.svg?react"
@@ -137,7 +138,7 @@ export default function Home() {
           </section>
         </div>
       </section>
-
+      <Footer/>
     </main>
   );
 }
