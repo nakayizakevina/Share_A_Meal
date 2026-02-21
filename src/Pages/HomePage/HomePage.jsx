@@ -4,6 +4,7 @@ import heroImg from "../../assets/Images/food.png";
 import Navbar from "../../Components/Navbar/Navbar"
 import ProcuderCard from "../../Components/ProcuderCard/ProcuderCard"
 import ImpactCard from "../../Components/ImpactCard/ImpactCard"
+import Button from "../../Components/Button/Button"
 
 import RestrauntIcon from "../../assets/Icons/restaurant.svg?react"
 import SponsorIcon from "../../assets/Icons/money-dollar.svg?react"
@@ -18,14 +19,14 @@ export default function Home() {
     <main className={styles.container}>
       <Navbar/>
       
-      {/* HERO SECTION */}
+      
       <section className={styles.hero}>
         <div className={styles.heroText}>
-          <h1>Rescuing <span className={styles.shade}>Food</span>Waste Through Community <span className={styles.shade}>Action</span></h1>
+          <h1>Rescuing <span className={styles.shade}>Food</span> Waste Through Community <span className={styles.shade}>Action</span></h1>
           <p>Connecting SMEs, Sponsors & People in Need.</p>
           <div className={styles.heroCTA}>
             <p>One meal at a time</p>
-            <button className={styles.primaryBtn}>Get Started</button>
+           <Button/>
           </div>
           
         </div>
@@ -33,12 +34,14 @@ export default function Home() {
         <div className={styles.heroImage}>
           <img src={heroImg} className={styles.image} alt="Food Bowl" />
           <div className={styles.orange__ball}></div>
+          <div className={styles.leftOrange__ball}></div>
+          <div className={styles.rightOrange__ball}></div>
         </div>
       </section>
 
       
       <section className={styles.section}>
-        <h2>How It Works</h2>
+        <h2 className={styles.subtitles}>How It Works</h2>
 
         <div className={styles.cards}>
            <ProcuderCard
@@ -60,24 +63,29 @@ export default function Home() {
       </section>
 
       <section className={styles.impact}>
-        <h2>Impact</h2>
+        <h2 className={styles.subtitles}>Impact</h2>
 
         <div className={styles.stats}>
           <ImpactCard
+          icon={<RestrauntIcon/>}
           title="12K"
           description="Meals Shared"
           />
            <ImpactCard
+           icon={<RestrauntIcon/>}
            title="12K"
           description="SMEs Joined"
            
            />
             <ImpactCard 
+             icon={<RestrauntIcon/>}
             title="12K"
           description="Sponers"
             
             />
             <ImpactCard 
+            icon={<CommunityIcon/>}
+            
             title="12K"
           description="Communities Served"
             
@@ -85,10 +93,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
       <section className={styles.section}>
-        <h2>About Us</h2>
-        <h3>Reducing <span className={styles.shade}>Food</span>Waste Through Community <span className={styles.shade}>Action</span>
+        <h2 className={styles.subtitles}>About Us</h2>
+        <h3>Reducing <span className={styles.shade}>Food</span> Waste Through Community <span className={styles.shade}>Action</span>
 </h3>
         <p className={styles.description}>
           We are on a mission to reduce food waste and fight hunger by
@@ -97,33 +104,35 @@ export default function Home() {
 
         <div className={styles.ourProfile}>
           <section className={styles.values}>
-            <div>
-              <CompassionIcon/>
-              <p>Compassion</p>
+            <div className={styles.item}>
+              <CompassionIcon className={styles.valuesIcons}/>
+              <span className={styles.decor}>Compassion</span>
             </div>
-            <div>
+            <div className={styles.item}>
               <CommunityIcon/>
-              <p>Community</p>
+              <span className={styles.decor}>Community</span>
             </div>
-            <div>
+            <div className={styles.item}>
               <TransparencyIcon/>
-              <p>Transparency</p>
+              <span className={styles.decor}>Transparency</span>
             </div>
-            <div>
+            <div className={styles.item}>
               <SustainabilityIcon/>
-              <p>Sustainabilty</p>
+              <span className={styles.decor}>Sustainabilty</span>
             </div>
           </section>
           <section className={styles.grid}>
-             <div className={styles.box}>
-            <h3>Mission</h3>
-            <p>Reduce food waste through technology and community action.</p>
-          </div>
-
-          <div className={styles.box}>
+            <div className={styles.vision}>
             <h3>Vision</h3>
             <p>A world where no food is wasted and no one goes hungry.</p>
           </div>
+             <div className={styles.mission}>
+            <h3>Mission</h3>
+            <p>To reduce food waste and fight hunger by creating a trusted digital platform that 
+              connects restaurants, sponsors, and communities,  ensuring surplus food reaches those who need it most.</p>
+          </div>
+
+          
 
           </section>
         </div>
