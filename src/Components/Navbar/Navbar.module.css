@@ -32,12 +32,12 @@
 }
 
 .activeLink {
-  color: #c05621 !important; 
+  color: var(--Green) !important; 
 }
 
 .navBtn {
-  background-color: #c05621;
-  color: #fff !important;
+  background-color: var(--Green);
+  color: var(--White) !important;
   padding: 0.6rem 1.5rem;
   border-radius: 8px;
   transition: opacity 0.3s;
@@ -84,8 +84,8 @@
   }
 
   .mobileNavBtn {
-    background-color: #c05621;
-    color: white;
+    background-color: var(--Green);
+    color: var(--White);
     text-align: center;
     padding: 1rem;
     border-radius: 8px;
